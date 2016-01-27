@@ -20,7 +20,7 @@ ENV DATABASE        yourDBName
 #COPY config/php.ini /usr/local/etc/php/
 COPY app/ /var/www/html/
 #∆Ù”√php¿©’π
-#RUN docker-php-ext-install -j$(nproc) gd mysqli mysql pdo pdo_mysql 
+RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql openssl
 
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run.sh /run.sh
