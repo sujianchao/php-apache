@@ -24,10 +24,10 @@
     EXPOSE 22 80
 
 #配置Mysql数据库变量
-    ENV HOSTNAME        localhost      
-	ENV USERNAME        ssuser
+	ENV HOSTNAME        localhost      
+	ENV USERNAME        yourDBUser
 	ENV PASSWORD        yourDBPassword
-	ENV DATABASE        shadowsocks
+	ENV DATABASE        yourDBName
 
 #root登录密码可查看docker的log输出
 	========================================================================
