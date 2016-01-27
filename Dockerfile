@@ -9,7 +9,6 @@ RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSep
 
 ENV AUTHORIZED_KEYS **None**
 #ENV ROOT_PASS
-ENV SERVERPORTS  	22 80
 
 #Mysql连接参数配置
 ENV HOSTNAME        localhost      
@@ -25,6 +24,6 @@ ADD set_root_pw.sh /set_root_pw.sh
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
 
-EXPOSE $SERVERPORTS
+EXPOSE 22 80
 
 CMD ["/run.sh"]
