@@ -19,7 +19,8 @@ ENV DATABASE        yourDBName
 #安装app
 COPY config/php.ini /usr/local/etc/php/
 COPY app/ /var/www/html/
-
+#启用php扩展
+RUN docker-php-ext-install -j$(nproc) pdo pdo_mysql gd mysqli
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
