@@ -31,6 +31,6 @@ if [ ! -f /.root_pw_set ]; then
 	/set_root_pw.sh
 fi
 
-/usr/sbin/sshd -D &
+apache2-foreground &
 
-exec apache2-foreground
+exec /usr/sbin/sshd -D

@@ -17,7 +17,7 @@ ENV PASSWORD        yourDBPassword
 ENV DATABASE        yourDBName
 
 #安装app
-#COPY config/php.ini /usr/local/etc/php/
+COPY config/php.ini /usr/local/etc/php/
 COPY app/ /var/www/html/
 #启用php扩展
 RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql
