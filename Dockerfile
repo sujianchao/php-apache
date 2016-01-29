@@ -20,7 +20,7 @@ ENV DATABASE        yourDBName
 COPY config/php.ini /usr/local/etc/php/
 COPY app/ /var/www/html/
 #∆Ù”√php¿©’π
-RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql mbstring shmop zip
+RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql mbstring shmop
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
