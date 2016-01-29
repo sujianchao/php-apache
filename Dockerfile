@@ -44,9 +44,9 @@ RUN curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.
     ) \
     && rm -r xcache \
     && docker-php-ext-enable xcache
-RUN apt-get update && apt-get install -y \
-		openssl \
-	&& docker-php-ext-install -j$(nproc) openssl	
+#RUN apt-get update && apt-get install -y \
+#		openssl \
+#	&& docker-php-ext-install -j$(nproc) openssl	
 RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql mbstring shmop
 RUN docker-php-ext-install -j$(nproc) --ini-name 0-apc.ini apcu apc
 
