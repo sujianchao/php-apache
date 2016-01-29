@@ -29,7 +29,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql
-RUN docker-php-ext-install -j$(nproc) openssl apc mbstring shmop
+RUN docker-php-ext-install -j$(nproc) openssl mbstring shmop
+RUN docker-php-ext-install -j$(nproc) --ini-name 0-apc.ini apcu apc
 
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run.sh /run.sh
