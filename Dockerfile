@@ -20,7 +20,16 @@ ENV DATABASE        yourDBName
 COPY config/php.ini /usr/local/etc/php/
 COPY app/ /var/www/html/
 #∆Ù”√php¿©’π
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+    && docker-php-ext-install iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd
 RUN docker-php-ext-install -j$(nproc) mysqli mysql pdo pdo_mysql
+RUN docker-php-ext-install -j$(nproc) openssl apcu apc mbstring shmop
 
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run.sh /run.sh
